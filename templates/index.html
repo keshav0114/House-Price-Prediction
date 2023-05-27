@@ -21,6 +21,8 @@
       href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Maven+Pro:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;800&family=Red+Hat+Display:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    
+    
   </head>
   <body>
     <div class="main-container">
@@ -30,16 +32,17 @@
         <div class="hr"></div>
         <div class="text">Please select your city</div>
 
-        <form>
-          <select class="form-select" aria-label="Select City">
+        <form id="myForm"  method="GET">
+          <select class="form-select" aria-label="Select City" name="city">
             <option selected>Select City</option>
-            <option value="Banglore">Banglore</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Hyderabad">Hyderabad</option>
-            <option value="Kolkata">Kolkata</option>
-            <option value="Chennai">Chennai</option>
-            <option value="Mumbai">Mumbai</option>
+            <option value="bengaluru">Bangalore</option>
+            <option value="delhi">Delhi</option>
+            <option value="hyderabad">Hyderabad</option>
+            <option value="kolkata">Kolkata</option>
+            <option value="chennai">Chennai</option>
+            <option value="mumbai">Mumbai</option>
           </select>
+          <button type="submit">Proceed</button>
         </form>
       </div>
       <div class="img-container">
@@ -51,7 +54,26 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <div class="heading">{{ prediction_text}}</div>
   </body>
+  <script>
+    // Get the form element
+    var form = document.getElementById('myForm');
+  
+    // Add an event listener for form submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+  
+      // Get the selected city value
+      var selectedCity = form.elements.city.value;
+  
+      // Set the dynamic action based on the selected city
+      form.action = '/' + selectedCity;
+  
+      // Submit the form
+     form.submit();
+    });
+  </script>
 </html>
 
 <!-- <div class="container col-4 mt-3">
