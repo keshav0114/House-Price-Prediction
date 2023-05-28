@@ -75,36 +75,36 @@ def predict():
         prediction = mbanglore.predict(final_features)
         output = round(prediction[0], 2)
         numbers = "{:,}".format(output)
-        return render_template('index.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
+        return render_template('cities.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
     if(cityname == "Hyderabad"):
         prediction = mhyderabad.predict(final_features)
         output = round(prediction[0], 2)
         numbers = "{:,}".format(output)
-        return render_template('index.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
+        return render_template('cities.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
     if(cityname == "Kolkata"):
         prediction = mkolkata.predict(final_features)
         output = round(prediction[0], 2)
         numbers = "{:,}".format(output)
-        return render_template('index.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
+        return render_template('cities.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
     if(cityname == "Chennai"):
         model = pickle.load(open('Chennai_home_prices_model.pkl','rb'))
         prediction = model.predict(final_features)
         output = round(prediction[0], 2)
         numbers = "{:,}".format(output)
-        return render_template('index.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
+        return render_template('cities.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
     
     if(cityname == "Mumbai"):
         prediction = mmumbai.predict(final_features)
         output = round(prediction[0], 2)
         numbers = "{:,}".format(output)
-        return render_template('index.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
+        return render_template('cities.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
     
 
     if(cityname == "Delhi"):
         prediction = mdelhi.predict(final_features)
         output = round(prediction[0], 2)
         numbers = "{:,}".format(output)
-        return render_template('index.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
+        return render_template('cities.html', prediction_text='Expected House Price is INR {}'.format(numbers) , city_name =cityname)
     
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
